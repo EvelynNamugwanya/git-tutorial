@@ -29,12 +29,15 @@ int main()
         for(j = 0; j < c2; ++j)
         {
             C[i][j]=0;
-        }
+     
+       }
+//******************************************************************************
+                             MATRIX  MULTIPLICATION(ikjorder)
 //******************** IKJ*************************************************
     // Multiplying matrix a and b hence the product in c.***rowise
      for(i = 0; i < r1; ++i)
      for(k = 0; k < c1; ++k)
-     for(j = 0; j < c2; ++j)//the matrix will multiply colomn wise
+     for(j = 0; j < c2; ++j)
     //for(i = 0; i < r1; ++i)
         //for(j = 0; j < c2; ++j)
        // temp=a[i][k];
