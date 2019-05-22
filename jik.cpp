@@ -31,7 +31,10 @@ int main()
             C[i][j]=0;
         }
 
-    // Multiplying matrix a and b hence the product in c.
+   /******************************************************************************
+                             MATRIX  MULTIPLICATION(jik order)colomn major
+*******************************************************************************/ 
+ // Multiplying matrix a and b hence the product in c.
      for(j = 0; j < c2; ++j)//the matrix will multiply colomn wise
     for(i = 0; i < r1; ++i)
         //for(j = 0; j < c2; ++j)
