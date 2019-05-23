@@ -1,0 +1,30 @@
+#include <iostream>
+#define n 3 
+using namespace std;
+
+int main() 
+{ 
+    /*
+    gettin the dot product for vector A and B
+    1.Multiply a and b to get c e.g  C[]={6 -24 -4}
+    2.Add the contents of C using sum
+    
+    */
+  int sum=0;int C =0;
+    int A[] = { 3, -5, 4 }; 
+    int B[] = { 2, 6, 5 };
+    
+ for (int i = 0; i < n; i++) {
+  
+     C += A[i] * B[i]; //vector c is the product of A and B
+ //cout<<"****vector c:";
+     cout << C << " ";
+    sum +=C;//sum of vector c
+    
+ }cout<<endl;
+ //cout << C << " "; 
+ cout<<"****The dot product is:";
+ cout << sum << " "; 
+    return 0 ; 
+} 
+  
