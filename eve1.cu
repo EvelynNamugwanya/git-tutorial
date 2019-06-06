@@ -1,5 +1,6 @@
 
-
+//DOT PRODUCT FOR AB=C;COMPILES AND GIVES CORRECT ANS
+//1D
 
 #include<cmath>
 #include<cstdio>
