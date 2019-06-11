@@ -37,7 +37,8 @@ printf("dot product is; %d\n",temp);
 }
 
 }
-int main(){
+int 
+main(){
 
 
 int A[2]={1,2};
