@@ -2,7 +2,7 @@
 #define M 2
 #define N 2
 #define K 2
-
+//woow
   
 int main()
 {
@@ -14,6 +14,7 @@ int i,j,k;
   int B[K*N]={2,4,5,2};
   int C[M*N]={0,0,0,0};
 for(int i=0;i<M*K;i++){    printf("%d\n",A[i]);}
+for(int i=0;i<K*N;i++){    printf("%d\n",B[i]);}
 //Row Major transversing
 for( i=0;i<M;i++){
 for( j=0;j<N;j++){
