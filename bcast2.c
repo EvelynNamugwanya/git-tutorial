@@ -3,6 +3,7 @@
 #include <stdlib.h>
 int main(int argc, char **argv)
 {
+//Broadcasting 3*3 matrix
 int *array;
 int rank,size,i,j;
 MPI_Init(&argc,&argv);
