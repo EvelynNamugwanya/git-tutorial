@@ -1,3 +1,7 @@
+
+//Dynamic memory Allocation with MPI_Scatter
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -46,7 +50,7 @@ int main (int argc, char **argv) {
         printArray(matrix, size*size);
     }
 
-    int *procRow = malloc(sizeof(int) *size); // received row will contain size integers
+    int *procRow = malloc(sizeof(int) *size); // received row will contain size integers and row is size
     if (procRow == NULL) {
         perror("Error in malloc 3");
         exit(1);

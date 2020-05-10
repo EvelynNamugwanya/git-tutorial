@@ -3,7 +3,7 @@
     #include <mpi.h>
      
     /**
-     * 
+     * MPI_Gather
      *
      * +-----------------------+ +-----------------------+ +-----------------------+
      * |       Process 0       | |       Process 1       | |       Process 2       |
@@ -15,12 +15,13 @@
      *            |                         |                       |       
      *            |___|_____________|_      |      ________________|       
      *                                |     |     |      
-     *                                |   Reduction                    
+     *                                |   MPI_Gather                   
                                     +-----+-----+-----+--------|
-     *                               | proc0| proc1| proc2|  |       
-     *                               +-----+-----+-----+ -----|   
-     *                              |    Process 0            |  
-     *                              +-----------------+ ------       
+     *                               | process 0(Root)        |       
+     *  +-------+-------+-------+ +-------+-------+-------+ +-------+-------+-------+
+     * | Value | Value | Value | | Value | Value | Value | | Value | Value | Value |
+     * |   0   |  1    |  2  | |  100  |  101    |  102  | |  200  |  201  |  202  |
+     * +-------+-------+-------+ +-------+-------+-------+ +-------+-------+-------+   
      **/
     int main(int argc, char* argv[])
     {
@@ -51,15 +52,16 @@
   	int buffer_recv[size];
 
 
-	MPI_Reduce(my_values,buffer_recv,size,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
+	MPI_Gather(my_values,size,MPI_INT,buffer_recv,size,MPI_INT,0,MPI_COMM_WORLD);
         //MPI_Alltoall(&my_values, 1, MPI_INT, buffer_recv, 1, MPI_INT, MPI_COMM_WORLD);
 	if (my_rank==0){
-	printf("The reduced values @ the same index of different processes are %d,%d,%d:\n ", buffer_recv[0],buffer_recv[1],buffer_recv[2]);
-	int sum=0,i;
+	//printf("The reduced values @ the same index of different processes are %d:\n ", my_rank);
+	int i;
 	for(i = 0; i < size; i++)
-	sum+=buffer_recv[i];
+	//buffer_recv[i]=i+1;
+buffer_recv[i];
 
-     	 printf("The reduced values is %d:\n ", sum);  
+     	 printf("process 0 has  %d,%d,%d,%d,%d,%d,%d,%d,%d:\n ", buffer_recv[0],buffer_recv[1],buffer_recv[2],buffer_recv[3],buffer_recv[4],buffer_recv[5],buffer_recv[6],buffer_recv[7],buffer_recv[8]);
  //printf("The reduced values is %d,%d: ", buffer_recv[0],buffer_recv[1],buffer_recv[2]);
     }
         MPI_Finalize();

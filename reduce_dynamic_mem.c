@@ -29,39 +29,46 @@
         // Get number of processes and check that 3 processes are used
         int size;
         MPI_Comm_size(MPI_COMM_WORLD, &size);
-       /* if(size != 3)
-        {
-            printf("This application is meant to be run with 3 MPI processes.\n");
-            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-        } */
-     
-        // Get my rank
+       
         int my_rank;
         MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-        //int i;
-        // Define my value
-        int my_values[size];
-        for(int i = 0; i < size; i++)
-        {
-            my_values[i] = 1*i+  my_rank* 100;
-        }
-        printf("Process %d, my values = %d, %d, %d.\n", my_rank, my_values[0], my_values[1], my_values[2]);
-     
+        
+
+        //int my_values[size];
+	int *my_values = malloc(size * sizeof(int ));
  
-  	int buffer_recv[size];
+        printf("Process %d has the following elements \n", my_rank);
+	int z;
+	for(int z = 0; z < size; z++)   {
+        
+            my_values[z] = 1*z+  my_rank* 100;
+        
+        printf("  %d,",  my_values[z]);
+    					 }
+ 	 printf("  \n");
+  	int *buffer_recv;
+		if ((( buffer_recv= malloc(size*sizeof(int))) == NULL) ){
+        		printf("Malloc error");
+        	exit(1);
+        							}
 
 
 	MPI_Reduce(my_values,buffer_recv,size,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
         //MPI_Alltoall(&my_values, 1, MPI_INT, buffer_recv, 1, MPI_INT, MPI_COMM_WORLD);
 	if (my_rank==0){
-	printf("The reduced values @ the same index of different processes are %d,%d,%d:\n ", buffer_recv[0],buffer_recv[1],buffer_recv[2]);
+	int h;
+	for(h=0;h<size;h++){
+		buffer_recv[h];
+
+		printf("The reduced values @  the same index of different processes are %d:\n ", buffer_recv[h]);
+			   }
 	int sum=0,i;
 	for(i = 0; i < size; i++)
 	sum+=buffer_recv[i];
 
-     	 printf("The reduced values is %d:\n ", sum);  
- //printf("The reduced values is %d,%d: ", buffer_recv[0],buffer_recv[1],buffer_recv[2]);
-    }
+     	 	printf("The  sum of the reduced values is %d:\n ", sum);  
+ 
+    			}
         MPI_Finalize();
      
         return EXIT_SUCCESS;
