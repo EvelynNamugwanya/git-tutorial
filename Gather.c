@@ -30,16 +30,12 @@
         // Get number of processes and check that 3 processes are used
         int size;
         MPI_Comm_size(MPI_COMM_WORLD, &size);
-       /* if(size != 3)
-        {
-            printf("This application is meant to be run with 3 MPI processes.\n");
-            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-        } */
+       
      
         // Get my rank
         int my_rank;
         MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-        //int i;
+       
         // Define my value
         int my_values[size];
         for(int i = 0; i < size; i++)
@@ -59,10 +55,10 @@
 	int i;
 	for(i = 0; i < size; i++)
 	//buffer_recv[i]=i+1;
-buffer_recv[i];
+	buffer_recv[i];
 
-     	 printf("process 0 has  %d,%d,%d,%d,%d,%d,%d,%d,%d:\n ", buffer_recv[0],buffer_recv[1],buffer_recv[2],buffer_recv[3],buffer_recv[4],buffer_recv[5],buffer_recv[6],buffer_recv[7],buffer_recv[8]);
- //printf("The reduced values is %d,%d: ", buffer_recv[0],buffer_recv[1],buffer_recv[2]);
+     	 printf("process 0 has  %d,%d,%d,%d,%d,%d,%d,%d,%d:\n ", 		buffer_recv[0],buffer_recv[1],buffer_recv[2],buffer_recv[3],buffer_recv[4],buffer_recv[5],buffer_recv[6],buffer_recv[7],buffer_recv[8]);
+ 
     }
         MPI_Finalize();
      
