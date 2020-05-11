@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
-/*  
 
-Had succeded in allocating memory with malloc for the sender buffer but still figuring the receiver buffer first try atutorial of dynamic memory allocation/malloc memory allocation to be sure how itworks the employ jit here and see wheather its makes the results any better and clears the confusion
-
-*/
-    
 
 int main(int argc, char* argv[])
       {
