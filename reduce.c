@@ -48,7 +48,7 @@
         printf("Process %d, my values = %d, %d, %d.\n", my_rank, my_values[0], my_values[1], my_values[2]);
      
  
-  	int buffer_recv[size];
+  	int buffer_recv[size];//reciv
 
 
 	MPI_Reduce(my_values,buffer_recv,size,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
