@@ -55,7 +55,13 @@
 								}
 
     				}
-        MPI_Finalize();
+ 
+     free(rcounts); rcounts = 0;
+     free(displs); displs = 0;
+     free(buffer_recv); buffer_recv = 0;
+      
+ MPI_Finalize();
      
-        return EXIT_SUCCESS;
+        
+return EXIT_SUCCESS;
     }
