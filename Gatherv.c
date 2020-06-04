@@ -18,9 +18,9 @@
         MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
        
         
-	my_values=(int *)malloc(datasize*size*sizeof(int));
+	my_values=(int *)malloc(datasize*sizeof(int));
 	
-        for(int i = 0; i < datasize*size; i++)
+        for(int i = 0; i < datasize; i++)
         			{
             my_values[i] = i;
         

@@ -51,8 +51,8 @@
  
   	int buffer_recv[size];
 
-
-	MPI_Allgather(my_values,size,MPI_INT,buffer_recv,size,MPI_INT,MPI_COMM_WORLD);
+//int six=6;
+	int MPI_Neighbor_allgatherv(my_values,size,MPI_INT,buffer_recv,size,MPI_INT,MPI_COMM_WORLD);
         
 	printf("Process %d received elements: ", my_rank); 
 	int i;

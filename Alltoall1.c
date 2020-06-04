@@ -75,5 +75,5 @@ printf("\n");
     }
 
 			//questions
-			//what is the right way for mpi all to all to reshuffle data ,sometimes it reshuffles twice first in away am about to explain and other the second time it transposes it(picture in 				book),other times once and some days not all(when i try reading data in row major)
+			//what is the right way for mpi all to all to reshuffle data ,sometimes it reshuffles twice first in away am about to explain and other the second time it transposes it(picture in 				book),other times once and some days not all(when i try reading data in row major)-->Answered!
 

@@ -25,9 +25,10 @@
      **/
     int main(int argc, char* argv[])
     {
-        MPI_Init(&argc, &argv);
+        //must run on 3 processes!!
+
+	MPI_Init(&argc, &argv);
      
-        // Get number of processes and check that 3 processes are used
         int size;
         MPI_Comm_size(MPI_COMM_WORLD, &size);
        
@@ -48,7 +49,9 @@
   	int buffer_recv[size];
 
 
-	MPI_Gather(my_values,size,MPI_INT,buffer_recv,size,MPI_INT,0,MPI_COMM_WORLD);
+	MPI_Gather(my_values,size,MPI_INT,buffer_recv,size,MPI_INT,0,MPI_COMM_WORLD);// MPI_Gatherv( sptr, 100-myrank, stype, rbuf, rcounts, displs, MPI_INT, 
+                                                               //root, comm); 
+
         //MPI_Alltoall(&my_values, 1, MPI_INT, buffer_recv, 1, MPI_INT, MPI_COMM_WORLD);
 	if (my_rank==0){
 	//printf("The reduced values @ the same index of different processes are %d:\n ", my_rank);

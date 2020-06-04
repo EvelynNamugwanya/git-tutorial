@@ -21,6 +21,9 @@ for(i=0;i<size;i++) 	{
 		    }
 			 }
 }
+
+printf("%d [%d]\t",array[i*size+j],rank);
+printf("\n");
 MPI_Bcast(array,size*size,MPI_INT,0,MPI_COMM_WORLD);
 MPI_Barrier(MPI_COMM_WORLD);
 printf("process %d printing matrix:\n",rank);
